@@ -1,0 +1,26 @@
+{
+  "name": "Interactive-Accessibility-Activity",
+  "version": "0.1.2",
+  "homepage": "https://github.com/USQ-Media-Services/Interactive-Accessibility-Activity",
+  "authors": [
+    "Shane Gadsby <Shane.Gadsby@usq.edu.au>"
+  ],
+  "description": "A HTML5 drag and drop activity to help people think about appropriate actions for people with disabilities — Edit",
+  "main": "index.html",
+  "license": "GNU GPL 3.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "pepjs": "~0.3.0",
+    "jquery": "~2.1.4",
+    "angular": "~1.4.0",
+    "js-commons": "*",
+    "angular-bootstrap": "~0.13.0",
+    "bootstrap": "3"
+  }
+}

@@ -1,0 +1,37 @@
+CACHE MANIFEST
+
+#version 1.0 6-1-2015
+
+CACHE:
+
+#images
+	sys/img/icons/X.svg
+	sys/img/icons/questionMark.svg
+	sys/img/icons/tick.svg
+	sys/img/icons/favicon.ico
+	sys/img/assets/dottedBG.svg
+
+
+#style sheets
+	bower_components/angular/angular-csp.css
+	bower_components/angular-bootstrap/ui-bootstrap-csp.css
+	bower_components/bootstrap/dist/css/bootstrap.min.css
+	sys/css/fonts.css
+	sys/css/styles.css
+
+#fonts
+	sys/fonts/lato-light.woff
+	sys/fonts/lato-bold.woff
+	sys/fonts/opendyslexic3-regular-webfont.woff
+	sys/fonts/opendyslexic3-bold-webfont.woff
+
+#javascript files
+	bower_components/js-commons/jsCommons.min.js
+	bower_components/pepjs/dist/pep.min.js
+	bower_components/jquery/dist/jquery.min.js
+	bower_components/angular/angular.min.js
+	bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js
+	sys/js/main.js
+
+NETWORK:
+*

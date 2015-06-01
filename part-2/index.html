@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html ng-app="IDA" off-manifest="manifest.appcache">
+
+<head>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+	<!-- The title -->
+	<title>Interactive Accessibility Activity || Making appropriate adjustments</title>
+
+	<!-- Stylesheets -->
+		<link rel="stylesheet" type="text/css"  href="sys/css/fonts.css">
+		<link rel="stylesheet" type="text/css"  href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css"  href="bower_components/angular-bootstrap/ui-bootstrap-csp.css">
+		<link rel="stylesheet" type="text/css"  href="bower_components/angular/angular-csp.css">
+		<link rel="stylesheet" type="text/css"  href="sys/css/styles.css">
+	
+	<!-- Icons -->
+		<link rel="shortcut icon" href="sys/img/icons/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="sys/img/icons/favicon.ico" type="image/x-icon">
+
+
+</head>
+<body ng-cloak>
+
+
+	<div class="ida_wrapper" ng-controller="master"  ng-cloak>
+		<link ng-repeat="s in displayModes" rel="{{($parent.sheet != s || !$parent.sheet || 'stylesheet')}}" type="text/css"  ng-href="{{'sys/css/'+(s.sheet||'styles')+'.css'}}" >
+
+		<div class="ida_accessibilityPanel">
+
+			<div class="dropdown" dropdown>
+				<div class="dropdown-toggle" dropdown-toggle>
+					Having trouble viewing this exercise?<br>
+					Click here to try other display modes.
+				</div>
+				<ul class="dropdown-menu">
+					<li  ng-pointer="$parent.sheet = mode" ng-repeat="mode in displayModes"  ng-class="{'ida_selectedMode': $root.sheet[0] == mode}">
+						<a>{{mode.title}}</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<table class="ida_panel" border="0" cellspacing="5" cellpadding="5">
+			<tr>
+				<td colspan="3" align="center">Drag and match the potential drawbacks and match them to the correct possible adjustments</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<th style="text-align:center; font-weight:bold;">Possible Adjustment for Jenny</th>
+				<th>&nbsp;</th>
+				<th style="text-align:center; font-weight:bold;">Potential Drawback</th>
+			</tr>
+			<tr ng-repeat="q in questions">
+				<td class="ida_questionHolder">{{q.text}}</td>
+				<td class="ida_indicator">
+					<img ondragstart="return false;" ng-show="check($index, answers[q.answer]) == 1"  ng-src="sys/img/icons/questionMark.svg">
+					<img ondragstart="return false;" ng-show="check($index, answers[q.answer]) == 2"  ng-src="sys/img/icons/tick.svg">
+					<img ondragstart="return false;" ng-show="check($index, answers[q.answer]) == 3" ng-src="sys/img/icons/X.svg">
+				</td>
+				<td class="ida_answerSlots " ng-class="{'dotted':!answer}" drop>
+					<div class="ignore">
+						<div class="tooltipError tooltip right in fade" ng-class="{'tooltipError': check($index, answers[q.answer]) == 3, 'tooltipSuccess': check($index, answers[q.answer]) == 2}" ng-show="check($index, answers[q.answer]) != 1">
+							<div class="tooltip-arrow"></div>
+							<div class="tooltip-inner ng-binding" ng-bind="q.response[answer]"></div>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3" drop class="ida_answerHolder">
+					<a href="" ng-repeat="a in answers" class="ida_answer" drag draggable="true" tooltip-append-to-body="true"  tooltip="{{a}}">{{a}}</a>
+				</td>
+			</tr>
+		</table>
+
+		<footer>
+			This activity uses the <a href="http://dyslexicfonts.com">OpenDyslexic</a> typeface, available at <a href="http://dyslexicfonts.com">http://dyslexicfonts.com</a><br>
+			OpenDyslexic (by Abelardo Gonzalez) is licensed under a <a href="https://creativecommons.org/licenses/by/3.0/au/">Creative Commons Attribution 3.0 Unported License.</a></footer>
+
+
+
+	</div>
+
+
+
+
+	<!--Scripts!-->
+		<script src="bower_components/js-commons/jsCommons.min.js" type="text/javascript" charset="utf-8" ></script>
+		<script src="bower_components/pepjs/dist/pep.min.js" type="text/javascript" charset="utf-8" ></script>
+		<script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8" ></script>
+		<script src="bower_components/angular/angular.min.js" type="text/javascript" charset="utf-8" ></script>
+		<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js" type="text/javascript" charset="utf-8" ></script>
+		<script src="sys/js/main.js" type="text/javascript" charset="utf-8" ></script>
+
+
+
+</body>
+</html>
